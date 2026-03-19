@@ -37,16 +37,13 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-brand-deep/80 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center bg-brand-primary">
-            <span className="text-xs font-black text-white">JB</span>
-          </div>
           <span className="font-display font-black tracking-tighter text-2xl text-white">
-            BASNILLO
+            JAYVEE BASNILLO
           </span>
         </div>
         
         <div className="hidden lg:flex items-center gap-12">
-          {['About', 'Expertise', 'Projects', 'Contact'].map((item) => (
+          {['About', 'Expertise', 'Projects', 'Portfolio', 'Contact'].map((item) => (
             <a 
               key={item}
               href={`#${item.toLowerCase()}`} 
@@ -72,7 +69,7 @@ const Navbar = () => {
         className="lg:hidden bg-brand-deep fixed inset-0 z-40 overflow-hidden"
       >
         <div className="h-full flex flex-col items-center justify-center gap-8">
-          {['About', 'Expertise', 'Projects', 'Contact'].map((item) => (
+          {['About', 'Expertise', 'Projects', 'Portfolio', 'Contact'].map((item) => (
             <a 
               key={item}
               href={`#${item.toLowerCase()}`} 
@@ -190,14 +187,39 @@ const AboutSection = () => {
               <div className="w-12 h-px bg-brand-primary/20" />
               <span className="text-xs font-black uppercase tracking-widest">The Designer</span>
             </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="text-6xl leading-tight text-white"
-            >
-              Strategic.<br />Visionary.<br />Results driven.
-            </motion.h2>
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full aspect-square rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <img 
+                  src="https://picsum.photos/seed/designer/800/800" 
+                  alt="Jayvee Basnillo" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+              <div className="space-y-4">
+                <motion.h2 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.2 }}
+                  className="text-5xl xl:text-7xl font-display font-black uppercase tracking-tighter leading-none text-white whitespace-nowrap"
+                >
+                  Jayvee Basnillo
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.4 }}
+                  className="text-xs font-black uppercase tracking-widest text-brand-primary"
+                >
+                  Graphic/Web Designer | WordPress Elementor Builder | AI Web Developer
+                </motion.p>
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-8 space-y-12">
             <div className="overflow-hidden">
@@ -390,8 +412,8 @@ const ExperienceSection = () => {
   const experience = [
     { company: "Excelsior Creative", role: "Graphic/Web Designer | WordPress Elementor Builder | AI Web Developer", period: "Jan 2020 - Present", location: "United States · Remote" },
     { company: "DIGITALON AUSTRALIA", role: "Front-End Developer Wordpress-Elementor", period: "2021 - 2023", location: "Australia · Remote" },
-    { company: "Advallu", role: "Senior Web Designer", period: "Jan 2019 - Dec 2019", location: "Remote" },
-    { company: "You1st Global Solutions", role: "Design Team Lead", period: "Oct 2014 - Jan 2019", location: "Remote" },
+    { company: "Advallu", role: "Senior Web Designer", period: "Jan 2019 - Dec 2019", location: "Davao City" },
+    { company: "You1st Global Solutions", role: "Design Team Lead", period: "Oct 2014 - Jan 2019", location: "Davao City" },
     { company: "99designs", role: "Freelance logo and Web Designer", period: "Jan 2012 - Dec 2014", location: "Remote" }
   ];
 
@@ -460,7 +482,7 @@ const ExperienceSection = () => {
   );
 };
 
-const ProjectGrid = ({ onProjectClick }: { onProjectClick: (project: any) => void }) => {
+const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: any) => void, onViewAll: () => void }) => {
   const projects = [
     { title: "VietRise", category: "Community", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fvietrise.org%2F?w=1200", url: "https://vietrise.org/", description: "A community-focused platform for VietRise, empowering the Vietnamese community through cultural and civic engagement. The site features a clean, responsive design with integrated event management and resource libraries." },
     { title: "OC MECCA", category: "Community", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Focmecca.org%2F?w=1200", url: "https://ocmecca.org/", description: "Digital home for Orange County Multi-Ethnic Collaborative of Community Agencies. Designed to facilitate collaboration and resource sharing among diverse community groups with a focus on accessibility and multi-lingual support." },
@@ -477,7 +499,13 @@ const ProjectGrid = ({ onProjectClick }: { onProjectClick: (project: any) => voi
     { title: "1in6", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2F1in6.org%2F?w=1200", url: "https://1in6.org/", description: "A sensitive and supportive platform for 1in6, providing resources for male survivors of sexual abuse. Focuses on privacy, accessibility, and compassionate design." },
     { title: "Thompson Family Foundation", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fthompsonfamilyfoundation.us%2F?w=1200", url: "https://thompsonfamilyfoundation.us/", description: "Official site for the Thompson Family Foundation. Highlights philanthropic initiatives and grant opportunities with a focus on legacy and community impact." },
     { title: "Gold Futures Challenge", category: "Initiative", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgoldfutureschallenge.org%2F?w=1200", url: "https://goldfutureschallenge.org/", description: "A dynamic platform for the Gold Futures Challenge initiative. Features real-time tracking of challenges and community contributions with a bold, energetic design." },
-    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." }
+    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." },
+    { title: "Eco-Friendly Living", category: "Lifestyle", image: "https://picsum.photos/seed/eco/1200/800", url: "#", description: "A sustainable living platform promoting eco-friendly products and practices. Features a minimalist design that reflects the core values of environmental consciousness." },
+    { title: "TechNova Solutions", category: "Technology", image: "https://picsum.photos/seed/tech/1200/800", url: "#", description: "A cutting-edge technology solutions provider website. Showcases innovative software and hardware services with a futuristic and high-tech aesthetic." },
+    { title: "Urban Eats", category: "Food & Beverage", image: "https://picsum.photos/seed/food/1200/800", url: "#", description: "A vibrant food blog and restaurant directory for urban foodies. Focuses on high-quality food photography and user-generated reviews." },
+    { title: "Mindful Meditation", category: "Wellness", image: "https://picsum.photos/seed/wellness/1200/800", url: "#", description: "A serene and calming meditation app landing page. Uses soft colors and fluid animations to create a peaceful user experience." },
+    { title: "Global Logistics", category: "Logistics", image: "https://picsum.photos/seed/logistics/1200/800", url: "#", description: "A robust logistics and supply chain management platform. Emphasizes efficiency, reliability, and global reach through a professional design." },
+    { title: "Creative Pulse", category: "Agency", image: "https://picsum.photos/seed/agency/1200/800", url: "#", description: "A dynamic and creative agency portfolio. Showcases a wide range of design and marketing projects with a bold and unconventional layout." }
   ];
 
   const targetRef = useRef(null);
@@ -485,12 +513,31 @@ const ProjectGrid = ({ onProjectClick }: { onProjectClick: (project: any) => voi
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-90%"]);
 
   return (
-    <section id="projects" ref={targetRef} className="relative h-[600vh] bg-brand-deep">
+    <section id="projects" ref={targetRef} className="relative h-[800vh] bg-brand-deep">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-24 px-[10vw]">
+        {/* Section Header with View All Button */}
+        <div className="absolute top-32 left-0 right-0 z-20 px-6 md:px-12 pointer-events-none">
+          <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+            <div className="space-y-4 pointer-events-auto">
+              <div className="flex items-center gap-4 text-brand-primary/40">
+                <div className="w-12 h-px bg-brand-primary/20" />
+                <span className="text-xs font-black uppercase tracking-widest">Selected Works</span>
+              </div>
+              <h2 className="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white">Case Studies</h2>
+            </div>
+            <button 
+              onClick={onViewAll}
+              className="pointer-events-auto px-10 py-5 bg-brand-primary text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl shadow-brand-primary/20"
+            >
+              View All Case Studies
+            </button>
+          </div>
+        </div>
+
+        <motion.div style={{ x }} className="flex gap-24 px-[10vw] items-center pt-24">
           {projects.map((p, i) => (
             <motion.div 
               key={i}
@@ -520,7 +567,215 @@ const ProjectGrid = ({ onProjectClick }: { onProjectClick: (project: any) => voi
               </div>
             </motion.div>
           ))}
+          
+          {/* View All Button at the end of scroll */}
+          <motion.div 
+            className="flex-shrink-0 w-[40vw] flex flex-col items-center justify-center gap-8"
+          >
+            <button 
+              onClick={onViewAll}
+              className="group relative w-48 h-48 flex items-center justify-center"
+            >
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 border-2 border-dashed border-brand-primary/30 rounded-full"
+              />
+              <div className="relative z-10 flex flex-col items-center gap-2 group-hover:scale-110 transition-transform duration-500">
+                <Plus className="w-12 h-12 text-brand-primary" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-white">View All</span>
+              </div>
+            </button>
+            <h4 className="text-2xl font-display font-black uppercase tracking-tighter text-white/40">Explore Full Portfolio</h4>
+          </motion.div>
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const AllProjectsModal = ({ isOpen, onClose, projects, onProjectClick }: { isOpen: boolean, onClose: () => void, projects: any[], onProjectClick: (p: any) => void }) => {
+  if (!isOpen) return null;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[200] bg-brand-deep overflow-y-auto"
+    >
+      <div className="sticky top-0 z-[210] bg-brand-deep/80 backdrop-blur-md py-8 border-b border-white/5">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
+          <h2 className="text-4xl font-display font-black uppercase tracking-tighter text-white">All Case Studies</h2>
+          <button 
+            onClick={onClose}
+            className="p-4 bg-brand-primary text-white rounded-full hover:scale-110 transition-transform"
+          >
+            <X className="w-8 h-8" />
+          </button>
+        </div>
+      </div>
+
+      <div className="max-w-[1800px] mx-auto px-6 md:px-12 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {projects.map((p, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+              onClick={() => {
+                onClose();
+                onProjectClick(p);
+              }}
+              className="group space-y-6 cursor-pointer"
+            >
+              <div className="aspect-[16/10] overflow-hidden border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src={p.image} alt={p.title} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+              </div>
+              <div className="space-y-2">
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary">{p.category}</span>
+                <h3 className="text-3xl font-display font-black uppercase tracking-tighter text-white group-hover:text-brand-primary transition-colors">{p.title}</h3>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const DesignShowcase = () => {
+  const [activeCategory, setActiveCategory] = useState('Logos');
+  const [visibleCount, setVisibleCount] = useState(4);
+  const categories = ['Logos', 'Web Designs', 'Social Media Banners'];
+  
+  const items = {
+    'Logos': [
+      { title: 'Zenith Brand', image: 'https://picsum.photos/seed/logo1/600/600' },
+      { title: 'Pulse Identity', image: 'https://picsum.photos/seed/logo2/600/600' },
+      { title: 'Aura Studio', image: 'https://picsum.photos/seed/logo3/600/600' },
+      { title: 'Nova Tech', image: 'https://picsum.photos/seed/logo4/600/600' },
+      { title: 'Eco Flow', image: 'https://picsum.photos/seed/logo5/600/600' },
+      { title: 'Urban Peak', image: 'https://picsum.photos/seed/logo6/600/600' },
+      { title: 'Lumina', image: 'https://picsum.photos/seed/logo7/600/600' },
+      { title: 'Vortex', image: 'https://picsum.photos/seed/logo8/600/600' },
+      { title: 'Prism', image: 'https://picsum.photos/seed/logo9/600/600' },
+      { title: 'Orbit', image: 'https://picsum.photos/seed/logo10/600/600' },
+    ],
+    'Web Designs': [
+      { title: 'Portfolio Concept', image: 'https://picsum.photos/seed/web1/800/1000' },
+      { title: 'E-commerce UI', image: 'https://picsum.photos/seed/web2/800/1000' },
+      { title: 'SaaS Dashboard', image: 'https://picsum.photos/seed/web3/800/1000' },
+      { title: 'Travel App', image: 'https://picsum.photos/seed/web4/800/1000' },
+      { title: 'Food Delivery', image: 'https://picsum.photos/seed/web5/800/1000' },
+      { title: 'Fitness Tracker', image: 'https://picsum.photos/seed/web6/800/1000' },
+      { title: 'Real Estate', image: 'https://picsum.photos/seed/web7/800/1000' },
+      { title: 'Crypto Wallet', image: 'https://picsum.photos/seed/web8/800/1000' },
+    ],
+    'Social Media Banners': [
+      { title: 'Summer Campaign', image: 'https://picsum.photos/seed/banner1/1200/400' },
+      { title: 'Product Launch', image: 'https://picsum.photos/seed/banner2/1200/400' },
+      { title: 'Event Promotion', image: 'https://picsum.photos/seed/banner3/1200/400' },
+      { title: 'Brand Awareness', image: 'https://picsum.photos/seed/banner4/1200/400' },
+      { title: 'Holiday Special', image: 'https://picsum.photos/seed/banner5/1200/400' },
+      { title: 'Webinar Series', image: 'https://picsum.photos/seed/banner6/1200/400' },
+      { title: 'Black Friday', image: 'https://picsum.photos/seed/banner7/1200/400' },
+      { title: 'New Year Sale', image: 'https://picsum.photos/seed/banner8/1200/400' },
+    ]
+  };
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  useEffect(() => {
+    setVisibleCount(4);
+  }, [activeCategory]);
+
+  const currentItems = items[activeCategory as keyof typeof items];
+  const displayedItems = currentItems.slice(0, visibleCount);
+
+  return (
+    <section id="portfolio" ref={ref} className="section-spacing bg-brand-deep border-t border-white/5">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              className="flex items-center gap-4 text-brand-primary/40"
+            >
+              <div className="w-12 h-px bg-brand-primary/20" />
+              <span className="text-xs font-black uppercase tracking-widest">Design Showcase</span>
+            </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white"
+            >
+              Creative<br />Explorations
+            </motion.h2>
+          </div>
+          
+          <div className="flex flex-wrap gap-4">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-8 py-4 text-[10px] font-black uppercase tracking-widest rounded-full transition-all duration-500 border ${activeCategory === cat ? 'bg-brand-primary border-brand-primary text-white' : 'border-white/10 text-white/40 hover:border-white/30'}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <motion.div 
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {displayedItems.map((item, i) => (
+              <motion.div
+                key={item.title}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative aspect-square overflow-hidden bg-brand-secondary border border-white/5"
+              >
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${activeCategory === 'Social Media Banners' ? 'aspect-video' : ''}`}
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-brand-deep/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 text-center gap-4">
+                  <h4 className="text-xl font-display font-black uppercase tracking-tighter text-white">{item.title}</h4>
+                  <div className="px-6 py-2 border border-brand-primary text-brand-primary text-[10px] font-black uppercase tracking-widest rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    View Project
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {visibleCount < currentItems.length && (
+          <div className="mt-24 flex justify-center">
+            <button 
+              onClick={() => setVisibleCount(prev => prev + 4)}
+              className="group relative flex flex-col items-center gap-4"
+            >
+              <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand-primary transition-colors duration-500">
+                <Plus className="w-6 h-6 text-brand-primary group-hover:rotate-90 transition-transform duration-500" />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-white transition-colors">View More Explorations</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -726,10 +981,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-24">
           <div className="space-y-12">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-brand-primary flex items-center justify-center">
-                <span className="text-white text-xs font-black">JB</span>
-              </div>
-              <span className="text-2xl font-display font-black uppercase tracking-tighter text-white">Basnillo</span>
+              <span className="text-2xl font-display font-black uppercase tracking-tighter text-white">Jayvee Basnillo</span>
             </div>
             <h3 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none text-white">
               Let's create something<br />extraordinary together.
@@ -817,6 +1069,7 @@ const Footer = () => {
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isAllProjectsOpen, setIsAllProjectsOpen] = useState(false);
 
   useEffect(() => {
     const handleOpenProject = (e: any) => setSelectedProject(e.detail);
@@ -864,7 +1117,13 @@ export default function App() {
     { title: "1in6", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2F1in6.org%2F?w=1200", url: "https://1in6.org/", description: "A sensitive and supportive platform for 1in6, providing resources for male survivors of sexual abuse. Focuses on privacy, accessibility, and compassionate design." },
     { title: "Thompson Family Foundation", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fthompsonfamilyfoundation.us%2F?w=1200", url: "https://thompsonfamilyfoundation.us/", description: "Official site for the Thompson Family Foundation. Highlights philanthropic initiatives and grant opportunities with a focus on legacy and community impact." },
     { title: "Gold Futures Challenge", category: "Initiative", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgoldfutureschallenge.org%2F?w=1200", url: "https://goldfutureschallenge.org/", description: "A dynamic platform for the Gold Futures Challenge initiative. Features real-time tracking of challenges and community contributions with a bold, energetic design." },
-    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." }
+    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." },
+    { title: "Eco-Friendly Living", category: "Lifestyle", image: "https://picsum.photos/seed/eco/1200/800", url: "#", description: "A sustainable living platform promoting eco-friendly products and practices. Features a minimalist design that reflects the core values of environmental consciousness." },
+    { title: "TechNova Solutions", category: "Technology", image: "https://picsum.photos/seed/tech/1200/800", url: "#", description: "A cutting-edge technology solutions provider website. Showcases innovative software and hardware services with a futuristic and high-tech aesthetic." },
+    { title: "Urban Eats", category: "Food & Beverage", image: "https://picsum.photos/seed/food/1200/800", url: "#", description: "A vibrant food blog and restaurant directory for urban foodies. Focuses on high-quality food photography and user-generated reviews." },
+    { title: "Mindful Meditation", category: "Wellness", image: "https://picsum.photos/seed/wellness/1200/800", url: "#", description: "A serene and calming meditation app landing page. Uses soft colors and fluid animations to create a peaceful user experience." },
+    { title: "Global Logistics", category: "Logistics", image: "https://picsum.photos/seed/logistics/1200/800", url: "#", description: "A robust logistics and supply chain management platform. Emphasizes efficiency, reliability, and global reach through a professional design." },
+    { title: "Creative Pulse", category: "Agency", image: "https://picsum.photos/seed/agency/1200/800", url: "#", description: "A dynamic and creative agency portfolio. Showcases a wide range of design and marketing projects with a bold and unconventional layout." }
   ];
 
   return (
@@ -877,7 +1136,8 @@ export default function App() {
         <AboutSection />
         <StatsSection />
         <CapabilitySection />
-        <ProjectGrid onProjectClick={setSelectedProject} />
+        <DesignShowcase />
+        <ProjectGrid onProjectClick={setSelectedProject} onViewAll={() => setIsAllProjectsOpen(true)} />
         <ExperienceSection />
         <Contact />
       </main>
@@ -888,6 +1148,14 @@ export default function App() {
             project={selectedProject} 
             onClose={() => setSelectedProject(null)} 
             allProjects={projects}
+          />
+        )}
+        {isAllProjectsOpen && (
+          <AllProjectsModal 
+            isOpen={isAllProjectsOpen} 
+            onClose={() => setIsAllProjectsOpen(false)} 
+            projects={projects}
+            onProjectClick={setSelectedProject}
           />
         )}
       </AnimatePresence>
