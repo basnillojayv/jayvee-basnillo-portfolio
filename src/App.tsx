@@ -192,7 +192,7 @@ const AboutSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full aspect-square rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-[80%] aspect-square rounded-full overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 mx-auto"
               >
                 <img 
                   src="https://picsum.photos/seed/designer/800/800" 
@@ -206,7 +206,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 }}
-                  className="text-5xl xl:text-7xl font-display font-black uppercase tracking-tighter leading-none text-white whitespace-nowrap"
+                  className="text-4xl xl:text-6xl font-display font-black uppercase tracking-tighter leading-none text-white whitespace-nowrap"
                 >
                   Jayvee Basnillo
                 </motion.h2>
@@ -214,7 +214,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ delay: 0.4 }}
-                  className="text-xs font-black uppercase tracking-widest text-brand-primary"
+                  className="text-[10px] font-black uppercase tracking-widest text-brand-primary whitespace-nowrap"
                 >
                   Graphic/Web Designer | WordPress Elementor Builder | AI Web Developer
                 </motion.p>
