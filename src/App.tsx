@@ -37,9 +37,14 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-brand-deep/80 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <span className="font-display font-black tracking-tighter text-2xl text-white">
-            JAYVEE BASNILLO
-          </span>
+          <a href="#" className="flex items-center gap-3 group">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1nFsZWiJvyU09f17aXLo0j4yzcAdRx8LH" 
+              alt="Jayvee Basnillo Logo" 
+              className="h-[52px] w-auto grayscale group-hover:grayscale-0 transition-all duration-500"
+              referrerPolicy="no-referrer"
+            />
+          </a>
         </div>
         
         <div className="hidden lg:flex items-center gap-12">
@@ -124,46 +129,62 @@ const Hero = () => {
         </motion.div>
 
         {/* Main Content */}
-        <div className="relative z-10 text-center">
-          <div className="overflow-hidden mask-reveal">
-            <motion.h1 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              style={{ scale }}
-              className="text-[15vw] font-display font-black leading-[0.8] tracking-tighter uppercase text-white"
-            >
-              JAYVEE
-            </motion.h1>
-          </div>
-          
-          <div className="overflow-hidden mask-reveal">
-            <motion.h1 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              style={{ scale }}
-              className="text-[15vw] font-display font-black leading-[0.8] tracking-tighter uppercase italic outline-text"
-            >
-              BASNILLO
-            </motion.h1>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="pt-12 flex flex-col items-center gap-4"
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 w-full flex flex-col items-center justify-center relative z-10 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-0 max-w-lg"
           >
-            <p className="text-xs font-black uppercase tracking-[0.4em] text-white/30 max-w-2xl">
-              Graphic/Web Designer | WordPress Elementor Builder | AI Web Developer
-            </p>
-            <motion.div 
-              animate={{ height: [0, 80, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px bg-brand-primary/40" 
+            <img 
+              src="https://lh3.googleusercontent.com/d/18Qo2d9cX8UFgJl4g4Yg4U4l-hMISP9JK" 
+              alt="Jayvee Basnillo" 
+              className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000"
+              referrerPolicy="no-referrer"
             />
           </motion.div>
+          
+          <div className="space-y-4 mt-[-75px]">
+            <div className="overflow-hidden mask-reveal">
+              <motion.h1 
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                style={{ scale }}
+                className="text-[12vw] lg:text-[10vw] font-display font-black leading-[0.8] tracking-tighter uppercase text-white"
+              >
+                JAYVEE
+              </motion.h1>
+            </div>
+            
+            <div className="overflow-hidden mask-reveal">
+              <motion.h1 
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                style={{ scale }}
+                className="text-[12vw] lg:text-[10vw] font-display font-black leading-[0.8] tracking-tighter uppercase italic outline-text"
+              >
+                BASNILLO
+              </motion.h1>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="pt-12 flex flex-col items-center gap-4"
+            >
+              <p className="text-xs font-black uppercase tracking-[0.4em] text-white/30 max-w-2xl">
+                Graphic/Web Designer | WordPress Elementor Builder | AI Web Developer
+              </p>
+              <motion.div 
+                animate={{ width: [0, 80, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="h-px bg-brand-primary/40" 
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -195,7 +216,7 @@ const AboutSection = () => {
                 className="w-[80%] aspect-square rounded-full overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 mx-auto"
               >
                 <img 
-                  src="https://picsum.photos/seed/designer/800/800" 
+                  src="https://lh3.googleusercontent.com/d/1VfSrQwqmGu868Cub9Rct5O6HE-TgI2ak" 
                   alt="Jayvee Basnillo" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -206,7 +227,7 @@ const AboutSection = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 }}
-                  className="text-4xl xl:text-6xl font-display font-black uppercase tracking-tighter leading-none text-white whitespace-nowrap"
+                  className="text-[40px] xl:text-[66px] font-display font-black uppercase tracking-tighter leading-none text-white whitespace-nowrap"
                 >
                   Jayvee Basnillo
                 </motion.h2>
@@ -396,10 +417,10 @@ const ToolsSection = () => {
         >
           {[...tools, ...tools].map((tool, i) => (
             <React.Fragment key={i}>
-              <span className="text-white/20 text-xl md:text-3xl font-display font-black uppercase tracking-widest hover:text-white/60 transition-colors cursor-default">
+              <span className="text-white/20 text-xs md:text-sm font-display font-black uppercase tracking-widest hover:text-white/60 transition-colors cursor-default">
                 {tool}
               </span>
-              <span className="text-white/5 text-2xl">/</span>
+              <span className="text-white/5 text-lg">/</span>
             </React.Fragment>
           ))}
         </motion.div>
@@ -490,7 +511,6 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
     { title: "Strata Expanse", category: "Corporate", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fstrataexpanse.com%2F?w=1200", url: "https://strataexpanse.com/", description: "A high-performance corporate landing page for Strata Expanse, highlighting their strategic consulting services. Built with a brutalist aesthetic and smooth scroll animations to communicate authority and modernism." },
     { title: "Anaheim CF", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fanaheimcf.org%2F?w=1200", url: "https://anaheimcf.org/", description: "Official website for the Anaheim Community Foundation. Streamlined donation processes and community grant applications with a focus on transparency and user-friendly navigation." },
     { title: "Devoted to Design", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fdevotedtodesignfoundation.org%2F?w=1200", url: "https://devotedtodesignfoundation.org/", description: "A visually striking platform for a design-centric foundation. Emphasizes aesthetic precision and creative impact through bold typography and dynamic layout transitions." },
-    { title: "CLAOC", category: "Coalition", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fclaoc.org%2F?w=1200", url: "https://claoc.org/", description: "Digital platform for the CEO Leadership Alliance Orange County. Facilitates high-level collaboration and strategic planning with a professional, data-driven design language." },
     { title: "OC Fellows", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Focfellows.org%2F?w=1200", url: "https://ocfellows.org/", description: "A networking and resource platform for Orange County fellows. Focuses on professional development and community building with integrated member directories and event calendars." },
     { title: "Terrorism Law", category: "Legal", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fterrorismlaw.com%2F?w=1200", url: "https://terrorismlaw.com/", description: "A specialized legal resource site providing insights and analysis on terrorism law. Features a robust content management system for legal articles and case studies." },
     { title: "Susan Choi Law", category: "Legal", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsusanchoi.law%2F?w=1200", url: "https://susanchoi.law/", description: "Professional portfolio for attorney Susan Choi. Emphasizes trust and expertise through a clean, minimalist design and clear communication of legal services." },
@@ -499,13 +519,7 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
     { title: "1in6", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2F1in6.org%2F?w=1200", url: "https://1in6.org/", description: "A sensitive and supportive platform for 1in6, providing resources for male survivors of sexual abuse. Focuses on privacy, accessibility, and compassionate design." },
     { title: "Thompson Family Foundation", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fthompsonfamilyfoundation.us%2F?w=1200", url: "https://thompsonfamilyfoundation.us/", description: "Official site for the Thompson Family Foundation. Highlights philanthropic initiatives and grant opportunities with a focus on legacy and community impact." },
     { title: "Gold Futures Challenge", category: "Initiative", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgoldfutureschallenge.org%2F?w=1200", url: "https://goldfutureschallenge.org/", description: "A dynamic platform for the Gold Futures Challenge initiative. Features real-time tracking of challenges and community contributions with a bold, energetic design." },
-    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." },
-    { title: "Eco-Friendly Living", category: "Lifestyle", image: "https://picsum.photos/seed/eco/1200/800", url: "#", description: "A sustainable living platform promoting eco-friendly products and practices. Features a minimalist design that reflects the core values of environmental consciousness." },
-    { title: "TechNova Solutions", category: "Technology", image: "https://picsum.photos/seed/tech/1200/800", url: "#", description: "A cutting-edge technology solutions provider website. Showcases innovative software and hardware services with a futuristic and high-tech aesthetic." },
-    { title: "Urban Eats", category: "Food & Beverage", image: "https://picsum.photos/seed/food/1200/800", url: "#", description: "A vibrant food blog and restaurant directory for urban foodies. Focuses on high-quality food photography and user-generated reviews." },
-    { title: "Mindful Meditation", category: "Wellness", image: "https://picsum.photos/seed/wellness/1200/800", url: "#", description: "A serene and calming meditation app landing page. Uses soft colors and fluid animations to create a peaceful user experience." },
-    { title: "Global Logistics", category: "Logistics", image: "https://picsum.photos/seed/logistics/1200/800", url: "#", description: "A robust logistics and supply chain management platform. Emphasizes efficiency, reliability, and global reach through a professional design." },
-    { title: "Creative Pulse", category: "Agency", image: "https://picsum.photos/seed/agency/1200/800", url: "#", description: "A dynamic and creative agency portfolio. Showcases a wide range of design and marketing projects with a bold and unconventional layout." }
+    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." }
   ];
 
   const targetRef = useRef(null);
@@ -513,10 +527,10 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-90%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
 
   return (
-    <section id="projects" ref={targetRef} className="relative h-[800vh] bg-brand-deep">
+    <section id="projects" ref={targetRef} className="relative h-[600vh] bg-brand-deep">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         {/* Section Header with View All Button */}
         <div className="absolute top-32 left-0 right-0 z-20 px-6 md:px-12 pointer-events-none">
@@ -538,7 +552,7 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
         </div>
 
         <motion.div style={{ x }} className="flex gap-24 px-[10vw] items-center pt-24">
-          {projects.map((p, i) => (
+          {projects.slice(0, 10).map((p, i) => (
             <motion.div 
               key={i}
               onClick={() => onProjectClick(p)}
@@ -646,42 +660,28 @@ const AllProjectsModal = ({ isOpen, onClose, projects, onProjectClick }: { isOpe
 };
 
 const DesignShowcase = () => {
-  const [activeCategory, setActiveCategory] = useState('Logos');
+  const [activeCategory, setActiveCategory] = useState('Web Designs');
   const [visibleCount, setVisibleCount] = useState(4);
-  const categories = ['Logos', 'Web Designs', 'Social Media Banners'];
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const categories = ['Web Designs'];
   
   const items = {
-    'Logos': [
-      { title: 'Zenith Brand', image: 'https://picsum.photos/seed/logo1/600/600' },
-      { title: 'Pulse Identity', image: 'https://picsum.photos/seed/logo2/600/600' },
-      { title: 'Aura Studio', image: 'https://picsum.photos/seed/logo3/600/600' },
-      { title: 'Nova Tech', image: 'https://picsum.photos/seed/logo4/600/600' },
-      { title: 'Eco Flow', image: 'https://picsum.photos/seed/logo5/600/600' },
-      { title: 'Urban Peak', image: 'https://picsum.photos/seed/logo6/600/600' },
-      { title: 'Lumina', image: 'https://picsum.photos/seed/logo7/600/600' },
-      { title: 'Vortex', image: 'https://picsum.photos/seed/logo8/600/600' },
-      { title: 'Prism', image: 'https://picsum.photos/seed/logo9/600/600' },
-      { title: 'Orbit', image: 'https://picsum.photos/seed/logo10/600/600' },
-    ],
     'Web Designs': [
-      { title: 'Portfolio Concept', image: 'https://picsum.photos/seed/web1/800/1000' },
-      { title: 'E-commerce UI', image: 'https://picsum.photos/seed/web2/800/1000' },
-      { title: 'SaaS Dashboard', image: 'https://picsum.photos/seed/web3/800/1000' },
-      { title: 'Travel App', image: 'https://picsum.photos/seed/web4/800/1000' },
-      { title: 'Food Delivery', image: 'https://picsum.photos/seed/web5/800/1000' },
-      { title: 'Fitness Tracker', image: 'https://picsum.photos/seed/web6/800/1000' },
-      { title: 'Real Estate', image: 'https://picsum.photos/seed/web7/800/1000' },
-      { title: 'Crypto Wallet', image: 'https://picsum.photos/seed/web8/800/1000' },
-    ],
-    'Social Media Banners': [
-      { title: 'Summer Campaign', image: 'https://picsum.photos/seed/banner1/1200/400' },
-      { title: 'Product Launch', image: 'https://picsum.photos/seed/banner2/1200/400' },
-      { title: 'Event Promotion', image: 'https://picsum.photos/seed/banner3/1200/400' },
-      { title: 'Brand Awareness', image: 'https://picsum.photos/seed/banner4/1200/400' },
-      { title: 'Holiday Special', image: 'https://picsum.photos/seed/banner5/1200/400' },
-      { title: 'Webinar Series', image: 'https://picsum.photos/seed/banner6/1200/400' },
-      { title: 'Black Friday', image: 'https://picsum.photos/seed/banner7/1200/400' },
-      { title: 'New Year Sale', image: 'https://picsum.photos/seed/banner8/1200/400' },
+      { title: 'Vietrise', image: 'https://lh3.googleusercontent.com/d/1W3qudUxGwdYaWt4IlPRateXPLfly4v31' },
+      { title: 'Harbor Institute', image: 'https://lh3.googleusercontent.com/d/17wxGQXEcYVq3bhxI0BzN6xzB8_UVEKkR' },
+      { title: 'OC Fellows', image: 'https://lh3.googleusercontent.com/d/101i8D_gHJafk1hKDqFcOod52vsfqvMwp' },
+      { title: 'Susan Choi Law', image: 'https://lh3.googleusercontent.com/d/10GLiEu-donzl935cd-qtYA6XbO2J7y_t' },
+      { title: 'People for Housing', image: 'https://lh3.googleusercontent.com/d/1NygvXYONzdYy_ZtJJG3f3HiIkO3gkj8j' },
+      { title: 'Thompson Family Foundation', image: 'https://lh3.googleusercontent.com/d/1i84DXcTa1MHh0Gp41iMjNCb6h1iK-UVK' },
+      { title: 'OC MECCA', image: 'https://lh3.googleusercontent.com/d/1GB4Zi7n2aWCl1H8fiD8T_I7zVJKDG4Dy' },
+      { title: 'Terrorism Law', image: 'https://lh3.googleusercontent.com/d/1vpj1cIRB7-00mkvemxXK1YDD7TaPi5t4' },
+      { title: 'Happening Now with Hammer', image: 'https://lh3.googleusercontent.com/d/1mVywSBiKWGptQ1ZNjR3dPwxRpLczhX95' },
+      { title: 'Regent', image: 'https://lh3.googleusercontent.com/d/1lteH88cP2DW_bjt2ZJHyzS7njw9u3U-v' },
+      { title: 'Devoted to Design', image: 'https://lh3.googleusercontent.com/d/1h8-8X6zvFIbItbiS12LJ0YQV5D_UAfin' },
+      { title: 'OCCCOPICO', image: 'https://lh3.googleusercontent.com/d/1Vi6f8Fd-J5PF5-qeBR4rjOMNAZfbzumb' },
+      { title: 'Lenahan Law', image: 'https://lh3.googleusercontent.com/d/1JmymBXVa-XMhqrT1j4Erf_2Xu2yiFs0p' },
+      { title: 'Anaheim Community Foundation', image: 'https://lh3.googleusercontent.com/d/1GEc9WpowouKE8fdjHF0YkJUjJV5JV8vt' },
+      { title: 'Sierra Lobo', image: 'https://lh3.googleusercontent.com/d/16a86N10t4DwQgkebvJl8fkxMw4edxQoA' },
     ]
   };
 
@@ -752,16 +752,47 @@ const DesignShowcase = () => {
                   className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${activeCategory === 'Social Media Banners' ? 'aspect-video' : ''}`}
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-brand-deep/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 text-center gap-4">
+                <div 
+                  onClick={() => setSelectedImage(item.image)}
+                  className="absolute inset-0 bg-brand-deep/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 text-center gap-4 cursor-pointer"
+                >
                   <h4 className="text-xl font-display font-black uppercase tracking-tighter text-white">{item.title}</h4>
                   <div className="px-6 py-2 border border-brand-primary text-brand-primary text-[10px] font-black uppercase tracking-widest rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    View Project
+                    View
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 z-[200] bg-brand-deep/95 flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            >
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-8 right-8 z-[210] p-4 bg-brand-primary text-white rounded-full hover:scale-110 transition-transform"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <motion.img
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                src={selectedImage}
+                alt="Exploration Detail"
+                className="max-w-full max-h-full object-contain shadow-2xl border border-white/10"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {visibleCount < currentItems.length && (
           <div className="mt-24 flex justify-center">
@@ -1108,7 +1139,6 @@ export default function App() {
     { title: "Strata Expanse", category: "Corporate", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fstrataexpanse.com%2F?w=1200", url: "https://strataexpanse.com/", description: "A high-performance corporate landing page for Strata Expanse, highlighting their strategic consulting services. Built with a brutalist aesthetic and smooth scroll animations to communicate authority and modernism." },
     { title: "Anaheim CF", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fanaheimcf.org%2F?w=1200", url: "https://anaheimcf.org/", description: "Official website for the Anaheim Community Foundation. Streamlined donation processes and community grant applications with a focus on transparency and user-friendly navigation." },
     { title: "Devoted to Design", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fdevotedtodesignfoundation.org%2F?w=1200", url: "https://devotedtodesignfoundation.org/", description: "A visually striking platform for a design-centric foundation. Emphasizes aesthetic precision and creative impact through bold typography and dynamic layout transitions." },
-    { title: "CLAOC", category: "Coalition", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fclaoc.org%2F?w=1200", url: "https://claoc.org/", description: "Digital platform for the CEO Leadership Alliance Orange County. Facilitates high-level collaboration and strategic planning with a professional, data-driven design language." },
     { title: "OC Fellows", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Focfellows.org%2F?w=1200", url: "https://ocfellows.org/", description: "A networking and resource platform for Orange County fellows. Focuses on professional development and community building with integrated member directories and event calendars." },
     { title: "Terrorism Law", category: "Legal", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fterrorismlaw.com%2F?w=1200", url: "https://terrorismlaw.com/", description: "A specialized legal resource site providing insights and analysis on terrorism law. Features a robust content management system for legal articles and case studies." },
     { title: "Susan Choi Law", category: "Legal", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fsusanchoi.law%2F?w=1200", url: "https://susanchoi.law/", description: "Professional portfolio for attorney Susan Choi. Emphasizes trust and expertise through a clean, minimalist design and clear communication of legal services." },
@@ -1117,13 +1147,7 @@ export default function App() {
     { title: "1in6", category: "Non-Profit", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2F1in6.org%2F?w=1200", url: "https://1in6.org/", description: "A sensitive and supportive platform for 1in6, providing resources for male survivors of sexual abuse. Focuses on privacy, accessibility, and compassionate design." },
     { title: "Thompson Family Foundation", category: "Foundation", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fthompsonfamilyfoundation.us%2F?w=1200", url: "https://thompsonfamilyfoundation.us/", description: "Official site for the Thompson Family Foundation. Highlights philanthropic initiatives and grant opportunities with a focus on legacy and community impact." },
     { title: "Gold Futures Challenge", category: "Initiative", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgoldfutureschallenge.org%2F?w=1200", url: "https://goldfutureschallenge.org/", description: "A dynamic platform for the Gold Futures Challenge initiative. Features real-time tracking of challenges and community contributions with a bold, energetic design." },
-    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." },
-    { title: "Eco-Friendly Living", category: "Lifestyle", image: "https://picsum.photos/seed/eco/1200/800", url: "#", description: "A sustainable living platform promoting eco-friendly products and practices. Features a minimalist design that reflects the core values of environmental consciousness." },
-    { title: "TechNova Solutions", category: "Technology", image: "https://picsum.photos/seed/tech/1200/800", url: "#", description: "A cutting-edge technology solutions provider website. Showcases innovative software and hardware services with a futuristic and high-tech aesthetic." },
-    { title: "Urban Eats", category: "Food & Beverage", image: "https://picsum.photos/seed/food/1200/800", url: "#", description: "A vibrant food blog and restaurant directory for urban foodies. Focuses on high-quality food photography and user-generated reviews." },
-    { title: "Mindful Meditation", category: "Wellness", image: "https://picsum.photos/seed/wellness/1200/800", url: "#", description: "A serene and calming meditation app landing page. Uses soft colors and fluid animations to create a peaceful user experience." },
-    { title: "Global Logistics", category: "Logistics", image: "https://picsum.photos/seed/logistics/1200/800", url: "#", description: "A robust logistics and supply chain management platform. Emphasizes efficiency, reliability, and global reach through a professional design." },
-    { title: "Creative Pulse", category: "Agency", image: "https://picsum.photos/seed/agency/1200/800", url: "#", description: "A dynamic and creative agency portfolio. Showcases a wide range of design and marketing projects with a bold and unconventional layout." }
+    { title: "Green Door Hospitality", category: "Hospitality", image: "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgreendoorhospitality.com%2F?w=1200", url: "https://greendoorhospitality.com/", description: "A luxurious digital experience for Green Door Hospitality. Emphasizes high-end service and unique hospitality experiences through elegant typography and rich imagery." }
   ];
 
   return (
