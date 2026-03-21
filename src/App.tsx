@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <a href="#" className="flex items-center gap-3 group">
             <img 
-              src="https://lh3.googleusercontent.com/d/1nFsZWiJvyU09f17aXLo0j4yzcAdRx8LH" 
+              src="https://lh3.googleusercontent.com/d/1rVETUrWRaKLEicR08ZZOXh-z9_6fIHgc" 
               alt="Jayvee Basnillo Logo" 
               className="h-[52px] w-auto grayscale group-hover:grayscale-0 transition-all duration-500"
               referrerPolicy="no-referrer"
@@ -540,13 +540,13 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
                 <div className="w-12 h-px bg-brand-primary/20" />
                 <span className="text-xs font-black uppercase tracking-widest">Selected Works</span>
               </div>
-              <h2 className="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white">Case Studies</h2>
+              <h2 className="text-6xl md:text-8xl font-display font-black uppercase tracking-tighter text-white">Recent Projects</h2>
             </div>
             <button 
               onClick={onViewAll}
               className="pointer-events-auto px-10 py-5 bg-brand-primary text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl shadow-brand-primary/20"
             >
-              View All Case Studies
+              View All Projects
             </button>
           </div>
         </div>
@@ -575,7 +575,7 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
                   <h3 className="text-white text-6xl md:text-8xl font-display font-black uppercase tracking-tighter leading-none">{p.title}</h3>
                   <p className="text-brand-accent text-xs font-black uppercase tracking-widest mt-6 flex items-center gap-4">
                     <span className="w-8 h-px bg-brand-primary/40" />
-                    View Case Study
+                    View Project
                   </p>
                 </div>
               </div>
@@ -603,6 +603,30 @@ const ProjectGrid = ({ onProjectClick, onViewAll }: { onProjectClick: (project: 
             <h4 className="text-2xl font-display font-black uppercase tracking-tighter text-white/40">Explore Full Portfolio</h4>
           </motion.div>
         </motion.div>
+
+        {/* Slider Navigation Buttons */}
+        <div className="absolute bottom-12 left-0 right-0 z-20 px-6 md:px-12">
+          <div className="max-w-[1800px] mx-auto flex justify-center gap-6">
+            <button 
+              onClick={() => {
+                const scrollAmount = window.innerHeight * 0.6;
+                window.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
+              }}
+              className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary hover:border-brand-primary transition-all duration-300"
+            >
+              <ArrowRight className="w-6 h-6 rotate-180" />
+            </button>
+            <button 
+              onClick={() => {
+                const scrollAmount = window.innerHeight * 0.6;
+                window.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+              }}
+              className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-brand-primary hover:border-brand-primary transition-all duration-300"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -620,7 +644,7 @@ const AllProjectsModal = ({ isOpen, onClose, projects, onProjectClick }: { isOpe
     >
       <div className="sticky top-0 z-[210] bg-brand-deep/80 backdrop-blur-md py-8 border-b border-white/5">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <h2 className="text-4xl font-display font-black uppercase tracking-tighter text-white">All Case Studies</h2>
+          <h2 className="text-4xl font-display font-black uppercase tracking-tighter text-white">All Projects</h2>
           <button 
             onClick={onClose}
             className="p-4 bg-brand-primary text-white rounded-full hover:scale-110 transition-transform"
@@ -663,9 +687,9 @@ const DesignShowcase = () => {
   const [activeCategory, setActiveCategory] = useState('Web Designs');
   const [visibleCount, setVisibleCount] = useState(4);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const categories = ['Web Designs'];
+  const categories = ['Web Designs', 'Social Media'];
   
-  const items = {
+  const [items, setItems] = useState({
     'Web Designs': [
       { title: 'Vietrise', image: 'https://lh3.googleusercontent.com/d/1W3qudUxGwdYaWt4IlPRateXPLfly4v31' },
       { title: 'Harbor Institute', image: 'https://lh3.googleusercontent.com/d/17wxGQXEcYVq3bhxI0BzN6xzB8_UVEKkR' },
@@ -682,11 +706,37 @@ const DesignShowcase = () => {
       { title: 'Lenahan Law', image: 'https://lh3.googleusercontent.com/d/1JmymBXVa-XMhqrT1j4Erf_2Xu2yiFs0p' },
       { title: 'Anaheim Community Foundation', image: 'https://lh3.googleusercontent.com/d/1GEc9WpowouKE8fdjHF0YkJUjJV5JV8vt' },
       { title: 'Sierra Lobo', image: 'https://lh3.googleusercontent.com/d/16a86N10t4DwQgkebvJl8fkxMw4edxQoA' },
+    ],
+    'Social Media': [
+      { title: 'Community Education Australia', image: 'https://lh3.googleusercontent.com/d/1Jd3xRW6NirpL0DiaP7ejtZ12jABtDF4P' },
+      { title: 'Kaur Migration', image: 'https://lh3.googleusercontent.com/d/163JXjkCSWjwl4U54tKw63mjZMv6C1Voe' },
+      { title: 'Elite Training Institute', image: 'https://lh3.googleusercontent.com/d/1pjNYec9_bVGdE6J62dexjNMBztFC9jHq' },
+      { title: 'Kaur Migration', image: 'https://lh3.googleusercontent.com/d/1EcL6dFDryEZ_4qy5nB3mWPdXglsbZZUD' },
+      { title: 'Kaur Migration', image: 'https://lh3.googleusercontent.com/d/1q_D0W0Qr3i8ciwx_e1i8fylUL1jXWTPU' },
+      { title: 'Kaur Migration', image: 'https://lh3.googleusercontent.com/d/1ZrlsGMnCumN38cQcc_eVsVU9DA6s4qQi' },
+      { title: 'Kaur Migration', image: 'https://lh3.googleusercontent.com/d/1dewUFr1GKLdwtMCG8W1NQyjMUHRnEkTJ' },
     ]
-  };
+  });
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  useEffect(() => {
+    // Randomize items on mount
+    const shuffle = (array: any[]) => {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    };
+
+    setItems(prev => ({
+      'Web Designs': shuffle(prev['Web Designs']),
+      'Social Media': shuffle(prev['Social Media'])
+    }));
+  }, []);
 
   useEffect(() => {
     setVisibleCount(4);
@@ -738,18 +788,18 @@ const DesignShowcase = () => {
           <AnimatePresence mode="popLayout">
             {displayedItems.map((item, i) => (
               <motion.div
-                key={item.title}
+                key={item.image}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative aspect-square overflow-hidden bg-brand-secondary border border-white/5"
+                className="group relative aspect-square overflow-hidden bg-brand-secondary border border-white/5 rounded-[12px]"
               >
                 <img 
                   src={item.image} 
                   alt={item.title} 
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${activeCategory === 'Social Media Banners' ? 'aspect-video' : ''}`}
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${activeCategory === 'Social Media' ? 'aspect-video' : ''}`}
                   referrerPolicy="no-referrer"
                 />
                 <div 
